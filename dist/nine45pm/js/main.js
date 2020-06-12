@@ -45,7 +45,7 @@
             // for hero content animations 
             $("html").removeClass('ss-preload');
             $("html").addClass('ss-loaded');
-
+        
         });
     };
 
@@ -82,7 +82,6 @@
         // open-close menu by clicking on the menu icon
         menuTrigger.on('click', function(e){
             e.preventDefault();
-            alert('toggleMenu');
             siteBody.toggleClass('menu-is-open');
         });
 
