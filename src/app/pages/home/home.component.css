@@ -1,0 +1,29 @@
+.select-css {
+  display: block;
+  font-size: 16px;
+  line-height: 1.3;
+  padding: 0.4em 1.4em 0.3em 0.8em;
+  background-color: #121212;
+}
+
+.select-css:hover {
+  background-color: black;
+  color: white;
+}
+
+.select-css:focus {
+  background-color: black;
+  color: white;
+}
+
+.select-css option {
+  background-color: #121212;
+  color: white;
+}
+
+.table-line {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
