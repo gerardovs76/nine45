@@ -985,12 +985,44 @@ input[type="button"].btn--primary:focus {
   border-color: #6b3792;
 }
 
+/* button danger
+ * ------------------------------------------------- */
+ .btn.btn--danger,
+ button.btn--danger,
+ input[type="submit"].btn--danger,
+ input[type="reset"].btn--danger,
+ input[type="button"].btn--danger {
+   background: #dc3545;
+   border-color: #dc3545;
+   color: #FFFFFF;
+ }
+ 
+ .btn.btn--danger:hover,
+ button.btn--danger:hover,
+ input[type="submit"].btn--danger:hover,
+ input[type="reset"].btn--danger:hover,
+ input[type="button"].btn--danger:hover,
+ .btn.btn--danger:focus,
+ button.btn--danger:focus,
+ input[type="submit"].btn--danger:focus,
+ input[type="reset"].btn--danger:focus,
+ input[type="button"].btn--danger:focus {
+   background: #c82333;
+   border-color: #bd2130;
+ }
+
 /* button modifiers
  * ------------------------------------------------- */
 .btn.full-width,
 button.full-width {
   width: 100%;
   margin-right: 0;
+}
+
+.btn--small,
+button.btn--small {
+  height: 4rem !important;
+  line-height: 4rem !important;
 }
 
 .btn--medium,
@@ -3936,4 +3968,37 @@ footer a {
 
 }
 
+.select-css {
+  display: block;
+  font-size: 16px;
+  line-height: 1.3;
+  padding: 0.4em 1.4em 0.3em 0.8em;
+  background-color: #121212;
+}
+
+.select-css:hover {
+  background-color: black;
+  color: white;
+}
+
+.select-css:focus {
+  background-color: black;
+  color: white;
+}
+
+.select-css option {
+  background-color: #121212;
+  color: white;
+}
+
+.table-line {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.btn-disabled{
+  background-color: #666666 !important;
+  color: #b8b8b8 !important;
+}
 /*# sourceMappingURL=main.css.map */
