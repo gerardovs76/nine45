@@ -1,9 +1,10 @@
 (function ($) {
   var totalPedido = 0;
+  var totalCantidad = 0;
   var todasLasLineas = [];
   var lineasDePedido;
   var btnGrabarLinea = $("#btnGrabarLinea");
-  var urlRequest = 'https://nine45pm.com/services/pedido.php';
+  var urlRequest = "https://nine45pm.com/services/pedido.php";
 
   $(document).ready(() => {
     validarOpciones();
@@ -92,56 +93,56 @@
       validarOpciones();
     });
     var nombre = $("#nombre");
-    nombre.focusin(()=>{
-        console.log(nombre.val());
-        validarOpciones();
+    nombre.focusin(() => {
+    //   console.log(nombre.val());
+      validarOpciones();
     });
-    nombre.focusin(()=>{
-        console.log(nombre.val());
-        validarOpciones();
+    nombre.focusin(() => {
+    //   console.log(nombre.val());
+      validarOpciones();
     });
-    nombre.keyup(()=>{
-        console.log(nombre.val());
-        validarOpciones();
+    nombre.keyup(() => {
+    //   console.log(nombre.val());
+      validarOpciones();
     });
     var email = $("#email");
-    email.focusin(()=>{
-        console.log(email.val());
-        validarOpciones();
+    email.focusin(() => {
+    //   console.log(email.val());
+      validarOpciones();
     });
-    email.focusin(()=>{
-        console.log(email.val());
-        validarOpciones();
+    email.focusin(() => {
+    //   console.log(email.val());
+      validarOpciones();
     });
-    email.keyup(()=>{
-        console.log(email.val());
-        validarOpciones();
+    email.keyup(() => {
+    //   console.log(email.val());
+      validarOpciones();
     });
     var telefono = $("#telefono");
-    telefono.focusin(()=>{
-        console.log(telefono.val());
-        validarOpciones();
+    telefono.focusin(() => {
+    //   console.log(telefono.val());
+      validarOpciones();
     });
-    telefono.focusin(()=>{
-        console.log(telefono.val());
-        validarOpciones();
+    telefono.focusin(() => {
+    //   console.log(telefono.val());
+      validarOpciones();
     });
-    telefono.keyup(()=>{
-        console.log(telefono.val());
-        validarOpciones();
+    telefono.keyup(() => {
+    //   console.log(telefono.val());
+      validarOpciones();
     });
     var ciudad = $("#ciudad");
-    ciudad.focusin(()=>{
-        console.log(ciudad.val());
-        validarOpciones();
+    ciudad.focusin(() => {
+    //   console.log(ciudad.val());
+      validarOpciones();
     });
-    ciudad.focusin(()=>{
-        console.log(ciudad.val());
-        validarOpciones();
+    ciudad.focusin(() => {
+    //   console.log(ciudad.val());
+      validarOpciones();
     });
-    ciudad.keyup(()=>{
-        console.log(ciudad.val());
-        validarOpciones();
+    ciudad.keyup(() => {
+    //   console.log(ciudad.val());
+      validarOpciones();
     });
 
     btnGrabarLinea.click((e) => {
@@ -163,24 +164,38 @@
     var ciudad = $("#ciudad").val();
 
     var enviarPedido = {
-        nombre: nombre,
-        email: email,
-        telefono: telefono,
-        ciudad: ciudad,
-        lineasDePedido: todasLasLineas,
-        total: totalPedido
-    }
+      nombre: nombre,
+      email: email,
+      telefono: telefono,
+      ciudad: ciudad,
+      lineasDePedido: todasLasLineas,
+      total: totalPedido,
+      totalCantidad: totalCantidad,
+    };
 
     $.post(urlRequest, enviarPedido).done((res) => {
-        console.log(res);
-    })
-    console.log(enviarPedido);
+      console.log(res);
+      $("#grabarPedido").addClass("btn--stroke");
+      $("#grabarPedido").removeClass("btn--primary");
+      $("#nombre").val('');
+      $("#email").val('');
+      $("#telefono").val('');
+      $("#ciudad").val('');
+      $("#datosParaPedido").hide();
+      $('#tableLineaPedido').html('');
+      alert('Su pedido fue enviado con éxito');
+      todasLasLineas = [];
+      var offset = 20
+      $('html, body').animate({
+        scrollTop: $("#articulos").offset().top + offset
+    }, 2000);
 
-
+    });
+    // console.log(enviarPedido);
   }
 
   function validarOpciones() {
-      var btnGrabarPedido = $("#grabarPedido");
+    var btnGrabarPedido = $("#grabarPedido");
     if (
       $("#formColor option:selected").val() == "null" ||
       $("#formDiseno option:selected").val() == "null" ||
@@ -200,15 +215,20 @@
     } else {
       $("#datosParaPedido").show();
     }
-    if ($("#nombre").val().length < 4 || $("#email").val().length < 4 || $("#telefono").val().length < 8 || $("#ciudad").val().length < 4) {
-        btnGrabarPedido.addClass("btn--stroke");
-        btnGrabarPedido.removeClass("btn--primary");
-        btnGrabarPedido.attr("disabled", true);
+    if (
+      $("#nombre").val().length < 4 ||
+      $("#email").val().length < 4 ||
+      $("#telefono").val().length < 8 ||
+      $("#ciudad").val().length < 4
+    ) {
+      btnGrabarPedido.addClass("btn--stroke");
+      btnGrabarPedido.removeClass("btn--primary");
+      btnGrabarPedido.attr("disabled", true);
     } else {
-        console.log('Dentro: ', $("#nombre").val());
-        btnGrabarPedido.addClass("btn--primary");
-        btnGrabarPedido.removeClass("btn--stroke");
-        btnGrabarPedido.attr("disabled", false);
+      //   console.log("Dentro: ", $("#nombre").val());
+      btnGrabarPedido.addClass("btn--primary");
+      btnGrabarPedido.removeClass("btn--stroke");
+      btnGrabarPedido.attr("disabled", false);
     }
   }
 
@@ -226,7 +246,7 @@
       cantidad: enviarCantidad,
     });
 
-    console.log(todasLasLineas);
+    // console.log(todasLasLineas);
 
     mostrarLineas();
   }
@@ -245,7 +265,8 @@
 
   function mostrarLineas() {
     totalPedido = 0;
-    console.log("Todas las lineas en funcion: ", todasLasLineas);
+    totalCantidad = 0;
+    // console.log("Todas las lineas en funcion: ", todasLasLineas);
     lineasDePedido = `<table>
     <thead>
       <tr>
@@ -266,6 +287,7 @@
         var subtotal = (+linea.cantidad * 3.5).toFixed(2);
       }
       totalPedido += +subtotal;
+      totalCantidad += +linea.cantidad;
       lineasDePedido +=
         "<tr><td>" +
         c +
@@ -277,7 +299,7 @@
         linea.diseno +
         "</td><td>$ " +
         subtotal +
-        "</td><td><a class='btn btn--small btn--danger' data-id='" +
+        "</td><td><a class='btn btn--small btn--danger btn-eliminar' data-id='" +
         linea.id +
         "'>Eliminar Línea</a></td></tr>";
       c++;
@@ -286,6 +308,17 @@
       "<tr><td colspan=2>Total: </td><td colspan=2>$ " +
       totalPedido.toFixed(2) +
       "</td></tr>";
+    if (totalCantidad > 12) {
+      var descuento = +totalCantidad * 0.25;
+      lineasDePedido +=
+        "<tr><td colspan=2 style='color: red;'>Descuento: </td><td colspan=2 style='color: red;'>- $ " +
+        descuento.toFixed(2) +
+        "</td></tr>";
+      lineasDePedido +=
+        "<tr><td colspan=2 style='color: white;'>Total a Pagar: </td><td colspan=2 style='color: white;'>- $ " +
+        (totalPedido - descuento).toFixed(2) +
+        "</td></tr>";
+    }
     lineasDePedido += `</tbody>
     </table>`;
     if (todasLasLineas.length) {

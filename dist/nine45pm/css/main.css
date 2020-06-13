@@ -4001,4 +4001,11 @@ footer a {
   background-color: #666666 !important;
   color: #b8b8b8 !important;
 }
+
+.imagenes-diseno{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 /*# sourceMappingURL=main.css.map */

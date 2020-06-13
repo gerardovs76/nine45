@@ -44,8 +44,8 @@
     <header class="s-header">
       <div class="header-logo">
         <a class="site-logo" href="/">
-          <!-- <img src="images/logo.svg" alt="Homepage"> -->
-          <h2>9:45 pm</h2>
+          <img src="images/logo-945.png" alt="Homepage">
+          <!-- <h2>9:45 pm</h2> -->
         </a>
       </div>
       <!-- end header-logo -->
@@ -61,16 +61,16 @@
           <ul class="header-nav__list">
             <li><a class="smoothscroll" href="#home" title="home">Home</a></li>
             <li>
+              <a class="smoothscroll" href="#articulos" title="articulos"
+                >Productos</a
+              >
+            </li>
+            <li>
               <a class="smoothscroll" href="#about" title="about">Acerca</a>
             </li>
             <li>
               <a class="smoothscroll" href="#services" title="services"
                 >Servicios</a
-              >
-            </li>
-            <li>
-              <a class="smoothscroll" href="#articulos" title="articulos"
-                >Productos</a
               >
             </li>
             <li>
@@ -82,20 +82,30 @@
 
           <ul class="header-nav__social">
             <li>
-              <a href="#0"><i class="fab fa-facebook"></i></a>
+              <a
+                href="https://www.facebook.com/pg/Nine45pm-107581614324286/posts/?ref=page_internal"
+                target="_blank"
+                ><i class="fab fa-facebook"></i
+              ></a>
             </li>
             <li>
-              <a href="#0"><i class="fab fa-twitter"></i></a>
+              <a
+                href="https://www.youtube.com/channel/UC0Z58-s6pPEpmMFftBfwIxw"
+                target="_blank"
+                ><i class="fab fa-youtube"></i
+              ></a>
             </li>
             <li>
-              <a href="#0"><i class="fab fa-instagram"></i></a>
+              <a href="https://instagram.com/nine.45pm" target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
             </li>
-            <li>
+            <!-- <li>
               <a href="#0"><i class="fab fa-behance"></i></a>
             </li>
             <li>
               <a href="#0"><i class="fab fa-dribbble"></i></a>
-            </li>
+            </li> -->
           </ul>
         </div>
         <!-- end header-nav__content -->
@@ -165,24 +175,28 @@
 
       <ul class="home-social">
         <li>
-          <a href="#0"
+          <a
+            href="https://www.facebook.com/pg/Nine45pm-107581614324286/posts/?ref=page_internal"
+            target="_blank"
             ><i class="fab fa-facebook-f" aria-hidden="true"></i
             ><span>Facebook</span></a
           >
         </li>
         <li>
-          <a href="#0"
-            ><i class="fab fa-twitter" aria-hidden="true"></i
-            ><span>Twiiter</span></a
+          <a
+            href="https://www.youtube.com/channel/UC0Z58-s6pPEpmMFftBfwIxw"
+            target="_blank"
+            ><i class="fab fa-youtube" aria-hidden="true"></i
+            ><span>Youtube</span></a
           >
         </li>
         <li>
-          <a href="#0"
+          <a href="https://instagram.com/nine.45pm" target="_blank"
             ><i class="fab fa-instagram" aria-hidden="true"></i
             ><span>Instagram</span></a
           >
         </li>
-        <li>
+        <!-- <li>
           <a href="#0"
             ><i class="fab fa-behance" aria-hidden="true"></i
             ><span>Behance</span></a
@@ -193,11 +207,442 @@
             ><i class="fab fa-dribbble" aria-hidden="true"></i
             ><span>Dribbble</span></a
           >
-        </li>
+        </li> -->
       </ul>
       <!-- end home-social -->
     </section>
     <!-- end s-home -->
+
+    <!-- articulos
+      ================================================== -->
+    <section id="articulos" class="s-works target-section">
+      <div
+        class="row section-header has-bottom-sep narrow target-section"
+        data-aos="fade-up"
+      >
+        <div class="col-full">
+          <h3 class="subhead">Genere su pedido</h3>
+          <h1 class="display-1">
+            Solo siga estos 3 pasos
+          </h1>
+          <h3>1: Seleccione el color</h3>
+          <img
+            src="images/colores.jpeg"
+            alt="colores"
+            style="display: block; margin: 10px auto; width: 300px;"
+          />
+          <h3>2: Seleccione un diseño personalizado por $0.50 adicionales</h3>
+          <h5>Transparente $3.00</h5>
+          <img
+            src="images/no-diseno.jpeg"
+            alt="transparente"
+            style="display: block; margin: 10px auto; width: 300px;"
+          />
+          <h5>Con Diseño $3.50</h5>
+          <div class="imagenes-diseno">
+            <img src="images/diseno1.jpeg" alt="1" width="200px" />
+            <img src="images/diseno2.jpeg" alt="2" width="200px" />
+            <img src="images/diseno3.jpeg" alt="3" width="200px" />
+          </div>
+          <h3>3: Indique la cantidad</h3>
+          <h5>
+            En pedidos totales mayores a 12 unidades le otorgamos un descuento
+            de $0.25 centavos por cada una.
+          </h5>
+        </div>
+      </div>
+      <!-- end section-header -->
+
+      <div class="row masonry-wrap">
+        <form>
+          <table>
+            <tr>
+              <td>
+                <h3 class="table-line">Seleccione el color de la cenefa:</h3>
+              </td>
+              <td>
+                <select id="formColor" class="select-css"> </select>
+              </td>
+            </tr>
+            <tr>
+              <td><h3 class="table-line">Seleccione el diseño:</h3></td>
+              <td>
+                <select id="formDiseno" class="select-css"> </select>
+              </td>
+            </tr>
+            <tr>
+              <td><h3 class="table-line">Indique la cantidad:</h3></td>
+              <td>
+                <input type="number" id="formCantidad" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button
+                  id="btnGrabarLinea"
+                  class="btn btn--large btn--stroke"
+                  disabled="true"
+                >
+                  Grabar item
+                </button>
+              </td>
+            </tr>
+          </table>
+        </form>
+
+        <div id="tableLineaPedido"></div>
+
+        <div id="datosParaPedido">
+          <h2>Ingrese sus datos para generar el pedido</h2>
+          <h4>
+            Pedidos dentro de Guayaquil mayores a 2 Docenas tienen
+            <span style="color: blueviolet;">envío gratis</span>
+          </h4>
+          <h4>
+            Aceptamos todas las tarjetas de crédito con
+            <span style="color: blueviolet;">PAYPAL o PAYPHONE</span>
+          </h4>
+          <form>
+            <table>
+              <tr>
+                <td>Nombre Completo</td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control-large"
+                    id="nombre"
+                    placeholder="Ingrese su nombre"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>
+                  <input
+                    type="email"
+                    class="form-control-large"
+                    id="email"
+                    placeholder="Ingrese su email"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Teléfono</td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control-large"
+                    id="telefono"
+                    placeholder="Ingrese su telefono"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Ciudad</td>
+                <td>
+                  <input
+                    type="text"
+                    class="form-control-large"
+                    id="ciudad"
+                    placeholder="Ingrese la ciudad"
+                  />
+                </td>
+              </tr>
+            </table>
+            <button class="btn btn--stroke" id="grabarPedido" disabled="true">
+              Enviar Pedido
+            </button>
+          </form>
+        </div>
+
+        <div class="masonry">
+          <!-- <div class="masonry__brick" data-aos="fade-up">
+            <div class="item-folio">
+              <div class="item-folio__thumb">
+                <a
+                  href="images/portfolio/gallery/g-shutterbug.jpg"
+                  class="thumb-link"
+                  title="Shutterbug"
+                  data-size="1050x700"
+                >
+                  <img
+                    src="images/portfolio/lady-shutterbug.jpg"
+                    srcset="
+                      images/portfolio/lady-shutterbug.jpg    1x,
+                      images/portfolio/lady-shutterbug@2x.jpg 2x
+                    "
+                    alt=""
+                  />
+                </a>
+              </div>
+    
+              <div class="item-folio__text">
+                <h3 class="item-folio__title">
+                  Shutterbug
+                </h3>
+                <p class="item-folio__cat">
+                  Branding
+                </p>
+              </div>
+    
+              <a
+                href="https://www.behance.net/"
+                class="item-folio__project-link"
+                title="Project link"
+              >
+                <i class="icon-link"></i>
+              </a>
+    
+              <div class="item-folio__caption">
+                <p>
+                  Vero molestiae sed aut natus excepturi. Et tempora numquam.
+                  Temporibus iusto quo.Unde dolorem corrupti neque nisi.
+                </p>
+              </div>
+            </div>
+          </div> -->
+          <!-- end masonry__brick -->
+
+          <!-- <div class="masonry__brick" data-aos="fade-up">
+            <div class="item-folio">
+              <div class="item-folio__thumb">
+                <a
+                  href="images/portfolio/gallery/g-woodcraft.jpg"
+                  class="thumb-link"
+                  title="Woodcraft"
+                  data-size="1050x700"
+                >
+                  <img
+                    src="images/portfolio/woodcraft.jpg"
+                    srcset="
+                      images/portfolio/woodcraft.jpg    1x,
+                      images/portfolio/woodcraft@2x.jpg 2x
+                    "
+                    alt=""
+                  />
+                </a>
+              </div>
+    
+              <div class="item-folio__text">
+                <h3 class="item-folio__title">
+                  Woodcraft
+                </h3>
+                <p class="item-folio__cat">
+                  Web Design
+                </p>
+              </div>
+    
+              <a
+                href="https://www.behance.net/"
+                class="item-folio__project-link"
+                title="Project link"
+              >
+                <i class="icon-link"></i>
+              </a>
+    
+              <div class="item-folio__caption">
+                <p>
+                  Vero molestiae sed aut natus excepturi. Et tempora numquam.
+                  Temporibus iusto quo.Unde dolorem corrupti neque nisi.
+                </p>
+              </div>
+            </div>
+          </div> -->
+          <!-- end masonry__brick -->
+
+          <!-- <div class="masonry__brick" data-aos="fade-up">
+            <div class="item-folio">
+              <div class="item-folio__thumb">
+                <a
+                  href="images/portfolio/gallery/g-beetle.jpg"
+                  class="thumb-link"
+                  title="The Beetle Car"
+                  data-size="1050x700"
+                >
+                  <img
+                    src="images/portfolio/the-beetle.jpg"
+                    srcset="
+                      images/portfolio/the-beetle.jpg    1x,
+                      images/portfolio/the-beetle@2x.jpg 2x
+                    "
+                    alt=""
+                  />
+                </a>
+              </div>
+    
+              <div class="item-folio__text">
+                <h3 class="item-folio__title">
+                  The Beetle
+                </h3>
+                <p class="item-folio__cat">
+                  Web Development
+                </p>
+              </div>
+    
+              <a
+                href="https://www.behance.net/"
+                class="item-folio__project-link"
+                title="Project link"
+              >
+                <i class="icon-link"></i>
+              </a>
+    
+              <div class="item-folio__caption">
+                <p>
+                  Vero molestiae sed aut natus excepturi. Et tempora numquam.
+                  Temporibus iusto quo.Unde dolorem corrupti neque nisi.
+                </p>
+              </div>
+            </div>
+          </div> -->
+          <!-- end masonry__brick -->
+
+          <!-- <div class="masonry__brick" data-aos="fade-up">
+            <div class="item-folio">
+              <div class="item-folio__thumb">
+                <a
+                  href="images/portfolio/gallery/g-salad.jpg"
+                  class="thumb-link"
+                  title="Grow Green"
+                  data-size="1050x700"
+                >
+                  <img
+                    src="images/portfolio/salad.jpg"
+                    srcset="
+                      images/portfolio/salad.jpg    1x,
+                      images/portfolio/salad@2x.jpg 2x
+                    "
+                    alt=""
+                  />
+                </a>
+              </div>
+    
+              <div class="item-folio__text">
+                <h3 class="item-folio__title">
+                  Salad
+                </h3>
+                <p class="item-folio__cat">
+                  Branding
+                </p>
+              </div>
+    
+              <a
+                href="https://www.behance.net/"
+                class="item-folio__project-link"
+                title="Project link"
+              >
+                <i class="icon-link"></i>
+              </a>
+    
+              <div class="item-folio__caption">
+                <p>
+                  Vero molestiae sed aut natus excepturi. Et tempora numquam.
+                  Temporibus iusto quo.Unde dolorem corrupti neque nisi.
+                </p>
+              </div>
+            </div>
+          </div> -->
+          <!-- end masonry__brick -->
+
+          <!-- <div class="masonry__brick" data-aos="fade-up">
+            <div class="item-folio">
+              <div class="item-folio__thumb">
+                <a
+                  href="images/portfolio/gallery/g-lamp.jpg"
+                  class="thumb-link"
+                  title="Guitarist"
+                  data-size="1050x700"
+                >
+                  <img
+                    src="images/portfolio/lamp.jpg"
+                    srcset="
+                      images/portfolio/lamp.jpg    1x,
+                      images/portfolio/lamp@2x.jpg 2x
+                    "
+                    alt=""
+                  />
+                </a>
+              </div>
+    
+              <div class="item-folio__text">
+                <h3 class="item-folio__title">
+                  Lamp
+                </h3>
+                <p class="item-folio__cat">
+                  Web Design
+                </p>
+              </div>
+    
+              <a
+                href="https://www.behance.net/"
+                class="item-folio__project-link"
+                title="Project link"
+              >
+                <i class="icon-link"></i>
+              </a>
+    
+              <div class="item-folio__caption">
+                <p>
+                  Vero molestiae sed aut natus excepturi. Et tempora numquam.
+                  Temporibus iusto quo.Unde dolorem corrupti neque nisi.
+                </p>
+              </div>
+            </div>
+          </div> -->
+          <!-- end masonry__brick -->
+
+          <!-- <div class="masonry__brick" data-aos="fade-up">
+            <div class="item-folio">
+              <div class="item-folio__thumb">
+                <a
+                  href="images/portfolio/gallery/g-fuji.jpg"
+                  class="thumb-link"
+                  title="Palmeira"
+                  data-size="1050x700"
+                >
+                  <img
+                    src="images/portfolio/fuji.jpg"
+                    srcset="
+                      images/portfolio/fuji.jpg    1x,
+                      images/portfolio/fuji@2x.jpg 2x
+                    "
+                    alt=""
+                  />
+                </a>
+              </div>
+    
+              <div class="item-folio__text">
+                <h3 class="item-folio__title">
+                  Fuji
+                </h3>
+                <p class="item-folio__cat">
+                  Web Design
+                </p>
+              </div>
+    
+              <a
+                href="https://www.behance.net/"
+                class="item-folio__project-link"
+                title="Project link"
+              >
+                <i class="icon-link"></i>
+              </a>
+    
+              <div class="item-folio__caption">
+                <p>
+                  Vero molestiae sed aut natus excepturi. Et tempora numquam.
+                  Temporibus iusto quo.Unde dolorem corrupti neque nisi.
+                </p>
+              </div>
+            </div>
+          </div> -->
+          <!-- end masonry__brick -->
+        </div>
+        <!-- end masonry -->
+      </div>
+      <!-- end masonry-wrap -->
+    </section>
+    <!-- end s-works -->
 
     <!-- about
       ================================================== -->
@@ -375,406 +820,6 @@
     </section>
     <!-- end s-services -->
 
-    <!-- articulos
-      ================================================== -->
-    <section id="articulos" class="s-works target-section">
-      <div
-        class="row section-header has-bottom-sep narrow target-section"
-        data-aos="fade-up"
-      >
-        <div class="col-full">
-          <h3 class="subhead">Genere su pedido</h3>
-          <h1 class="display-1">
-            Solo siga estos 3 pasos: Escoja el color de la cenefa, luego el
-            diseño y por último la cantidad.
-          </h1>
-        </div>
-      </div>
-      <!-- end section-header -->
-
-      <div class="row masonry-wrap">
-        <form>
-          <table>
-            <tr>
-              <td>
-                <h3 class="table-line">Seleccione el color de la cenefa:</h3>
-              </td>
-              <td>
-                <select id="formColor" class="select-css"> </select>
-              </td>
-            </tr>
-            <tr>
-              <td><h3 class="table-line">Seleccione el diseño:</h3></td>
-              <td>
-                <select id="formDiseno" class="select-css"> </select>
-              </td>
-            </tr>
-            <tr>
-              <td><h3 class="table-line">Indique la cantidad:</h3></td>
-              <td>
-                <input type="number" id="formCantidad" />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <button
-                  id="btnGrabarLinea"
-                  class="btn btn--large btn--stroke"
-                  disabled="true"
-                >
-                  Grabar item
-                </button>
-              </td>
-            </tr>
-          </table>
-        </form>
-
-        <div id="tableLineaPedido"></div>
-
-        <div id="datosParaPedido">
-          <h2>¿Desea solicitar esta proforma?</h2>
-          <form>
-            <table>
-              <tr>
-                <td>Nombre Completo</td>
-                <td>
-                  <input
-                    type="text"
-                    class="form-control-large"
-                    id="nombre"
-                    placeholder="Ingrese su nombre"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>Email</td>
-                <td>
-                  <input
-                    type="email"
-                    class="form-control-large"
-                    id="email"
-                    placeholder="Ingrese su email"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>Teléfono</td>
-                <td>
-                  <input
-                    type="text"
-                    class="form-control-large"
-                    id="telefono"
-                    placeholder="Ingrese su telefono"
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>Ciudad</td>
-                <td>
-                  <input
-                    type="text"
-                    class="form-control-large"
-                    id="ciudad"
-                    placeholder="Ingrese la ciudad"
-                  />
-                </td>
-              </tr>
-            </table>
-            <button class="btn btn--stroke" id="grabarPedido" disabled="true">
-              Enviar Pedido
-            </button>
-          </form>
-        </div>
-
-        <div class="masonry">
-          <!-- <div class="masonry__brick" data-aos="fade-up">
-          <div class="item-folio">
-            <div class="item-folio__thumb">
-              <a
-                href="images/portfolio/gallery/g-shutterbug.jpg"
-                class="thumb-link"
-                title="Shutterbug"
-                data-size="1050x700"
-              >
-                <img
-                  src="images/portfolio/lady-shutterbug.jpg"
-                  srcset="
-                    images/portfolio/lady-shutterbug.jpg    1x,
-                    images/portfolio/lady-shutterbug@2x.jpg 2x
-                  "
-                  alt=""
-                />
-              </a>
-            </div>
-  
-            <div class="item-folio__text">
-              <h3 class="item-folio__title">
-                Shutterbug
-              </h3>
-              <p class="item-folio__cat">
-                Branding
-              </p>
-            </div>
-  
-            <a
-              href="https://www.behance.net/"
-              class="item-folio__project-link"
-              title="Project link"
-            >
-              <i class="icon-link"></i>
-            </a>
-  
-            <div class="item-folio__caption">
-              <p>
-                Vero molestiae sed aut natus excepturi. Et tempora numquam.
-                Temporibus iusto quo.Unde dolorem corrupti neque nisi.
-              </p>
-            </div>
-          </div>
-        </div> -->
-          <!-- end masonry__brick -->
-
-          <!-- <div class="masonry__brick" data-aos="fade-up">
-          <div class="item-folio">
-            <div class="item-folio__thumb">
-              <a
-                href="images/portfolio/gallery/g-woodcraft.jpg"
-                class="thumb-link"
-                title="Woodcraft"
-                data-size="1050x700"
-              >
-                <img
-                  src="images/portfolio/woodcraft.jpg"
-                  srcset="
-                    images/portfolio/woodcraft.jpg    1x,
-                    images/portfolio/woodcraft@2x.jpg 2x
-                  "
-                  alt=""
-                />
-              </a>
-            </div>
-  
-            <div class="item-folio__text">
-              <h3 class="item-folio__title">
-                Woodcraft
-              </h3>
-              <p class="item-folio__cat">
-                Web Design
-              </p>
-            </div>
-  
-            <a
-              href="https://www.behance.net/"
-              class="item-folio__project-link"
-              title="Project link"
-            >
-              <i class="icon-link"></i>
-            </a>
-  
-            <div class="item-folio__caption">
-              <p>
-                Vero molestiae sed aut natus excepturi. Et tempora numquam.
-                Temporibus iusto quo.Unde dolorem corrupti neque nisi.
-              </p>
-            </div>
-          </div>
-        </div> -->
-          <!-- end masonry__brick -->
-
-          <!-- <div class="masonry__brick" data-aos="fade-up">
-          <div class="item-folio">
-            <div class="item-folio__thumb">
-              <a
-                href="images/portfolio/gallery/g-beetle.jpg"
-                class="thumb-link"
-                title="The Beetle Car"
-                data-size="1050x700"
-              >
-                <img
-                  src="images/portfolio/the-beetle.jpg"
-                  srcset="
-                    images/portfolio/the-beetle.jpg    1x,
-                    images/portfolio/the-beetle@2x.jpg 2x
-                  "
-                  alt=""
-                />
-              </a>
-            </div>
-  
-            <div class="item-folio__text">
-              <h3 class="item-folio__title">
-                The Beetle
-              </h3>
-              <p class="item-folio__cat">
-                Web Development
-              </p>
-            </div>
-  
-            <a
-              href="https://www.behance.net/"
-              class="item-folio__project-link"
-              title="Project link"
-            >
-              <i class="icon-link"></i>
-            </a>
-  
-            <div class="item-folio__caption">
-              <p>
-                Vero molestiae sed aut natus excepturi. Et tempora numquam.
-                Temporibus iusto quo.Unde dolorem corrupti neque nisi.
-              </p>
-            </div>
-          </div>
-        </div> -->
-          <!-- end masonry__brick -->
-
-          <!-- <div class="masonry__brick" data-aos="fade-up">
-          <div class="item-folio">
-            <div class="item-folio__thumb">
-              <a
-                href="images/portfolio/gallery/g-salad.jpg"
-                class="thumb-link"
-                title="Grow Green"
-                data-size="1050x700"
-              >
-                <img
-                  src="images/portfolio/salad.jpg"
-                  srcset="
-                    images/portfolio/salad.jpg    1x,
-                    images/portfolio/salad@2x.jpg 2x
-                  "
-                  alt=""
-                />
-              </a>
-            </div>
-  
-            <div class="item-folio__text">
-              <h3 class="item-folio__title">
-                Salad
-              </h3>
-              <p class="item-folio__cat">
-                Branding
-              </p>
-            </div>
-  
-            <a
-              href="https://www.behance.net/"
-              class="item-folio__project-link"
-              title="Project link"
-            >
-              <i class="icon-link"></i>
-            </a>
-  
-            <div class="item-folio__caption">
-              <p>
-                Vero molestiae sed aut natus excepturi. Et tempora numquam.
-                Temporibus iusto quo.Unde dolorem corrupti neque nisi.
-              </p>
-            </div>
-          </div>
-        </div> -->
-          <!-- end masonry__brick -->
-
-          <!-- <div class="masonry__brick" data-aos="fade-up">
-          <div class="item-folio">
-            <div class="item-folio__thumb">
-              <a
-                href="images/portfolio/gallery/g-lamp.jpg"
-                class="thumb-link"
-                title="Guitarist"
-                data-size="1050x700"
-              >
-                <img
-                  src="images/portfolio/lamp.jpg"
-                  srcset="
-                    images/portfolio/lamp.jpg    1x,
-                    images/portfolio/lamp@2x.jpg 2x
-                  "
-                  alt=""
-                />
-              </a>
-            </div>
-  
-            <div class="item-folio__text">
-              <h3 class="item-folio__title">
-                Lamp
-              </h3>
-              <p class="item-folio__cat">
-                Web Design
-              </p>
-            </div>
-  
-            <a
-              href="https://www.behance.net/"
-              class="item-folio__project-link"
-              title="Project link"
-            >
-              <i class="icon-link"></i>
-            </a>
-  
-            <div class="item-folio__caption">
-              <p>
-                Vero molestiae sed aut natus excepturi. Et tempora numquam.
-                Temporibus iusto quo.Unde dolorem corrupti neque nisi.
-              </p>
-            </div>
-          </div>
-        </div> -->
-          <!-- end masonry__brick -->
-
-          <!-- <div class="masonry__brick" data-aos="fade-up">
-          <div class="item-folio">
-            <div class="item-folio__thumb">
-              <a
-                href="images/portfolio/gallery/g-fuji.jpg"
-                class="thumb-link"
-                title="Palmeira"
-                data-size="1050x700"
-              >
-                <img
-                  src="images/portfolio/fuji.jpg"
-                  srcset="
-                    images/portfolio/fuji.jpg    1x,
-                    images/portfolio/fuji@2x.jpg 2x
-                  "
-                  alt=""
-                />
-              </a>
-            </div>
-  
-            <div class="item-folio__text">
-              <h3 class="item-folio__title">
-                Fuji
-              </h3>
-              <p class="item-folio__cat">
-                Web Design
-              </p>
-            </div>
-  
-            <a
-              href="https://www.behance.net/"
-              class="item-folio__project-link"
-              title="Project link"
-            >
-              <i class="icon-link"></i>
-            </a>
-  
-            <div class="item-folio__caption">
-              <p>
-                Vero molestiae sed aut natus excepturi. Et tempora numquam.
-                Temporibus iusto quo.Unde dolorem corrupti neque nisi.
-              </p>
-            </div>
-          </div>
-        </div> -->
-          <!-- end masonry__brick -->
-        </div>
-        <!-- end masonry -->
-      </div>
-      <!-- end masonry-wrap -->
-    </section>
-    <!-- end s-works -->
-
     <!-- clients
       ================================================== -->
     <section id="clients" class="s-clients target-section darker">
@@ -875,10 +920,10 @@
 
       <div class="row section-header narrow" data-aos="fade-up">
         <div class="col-full">
-          <h3 class="subhead">Keep In Touch</h3>
+          <h3 class="subhead">Contacto!</h3>
           <h1 class="display-1">
-            Feel free to contact us for any <br />
-            project idea or collaboration
+            Pueden contactarnos siempre <br />
+            por cualquier duda o sugerencia
           </h1>
         </div>
       </div>
@@ -890,7 +935,7 @@
             <a href="mailto:info@nine45pm.com">info@nine45pm.com</a>
           </p>
           <p class="contact-address">
-            Malaga 1 <br />
+            Guayaquil<br />
             Guayas, Ecuador
           </p>
           <p class="contact-numbers">
@@ -899,20 +944,30 @@
 
           <ul class="contact-social">
             <li>
-              <a href="#0"><i class="fab fa-facebook"></i></a>
+              <a
+                href="https://www.facebook.com/pg/Nine45pm-107581614324286/posts/?ref=page_internal"
+                target="_blank"
+                ><i class="fab fa-facebook"></i
+              ></a>
             </li>
             <li>
-              <a href="#0"><i class="fab fa-twitter"></i></a>
+              <a
+                href="https://www.youtube.com/channel/UC0Z58-s6pPEpmMFftBfwIxw"
+                target="_blank"
+                ><i class="fab fa-youtube"></i
+              ></a>
             </li>
             <li>
-              <a href="#0"><i class="fab fa-instagram"></i></a>
+              <a href="https://instagram.com/nine.45pm" target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
             </li>
-            <li>
+            <!-- <li>
               <a href="#0"><i class="fab fa-behance"></i></a>
             </li>
             <li>
               <a href="#0"><i class="fab fa-dribbble"></i></a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
