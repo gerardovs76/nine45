@@ -9,6 +9,10 @@
   $(document).ready(() => {
     validarOpciones();
     console.log("Cargado completamente");
+    var listartamano =
+      "<option value=" + null + ">Seleccione el tamaño</option>";
+    var tamano = ["Menor de 7 años", "De 7 a 14 años", "Mayor de 14 años"];
+
     var listarColores =
       "<option value=" + null + ">Seleccione el color</option>";
     var colores = [
@@ -69,6 +73,12 @@
       "Frozen: Elsa 2",
     ];
 
+    var formTamano = $("#formTamano");
+    $.each(tamano, (key, col) => {
+      listartamano += "<option value=" + col + ">" + col + "</option>";
+    });
+    formTamano.append(listartamano);
+
     var formColor = $("#formColor");
     $.each(colores, (key, col) => {
       listarColores += "<option value=" + col + ">" + col + "</option>";
@@ -83,6 +93,9 @@
 
     $("#formCantidad").val(1);
 
+    formTamano.on("change", () => {
+      validarOpciones();
+    });
     formColor.on("change", () => {
       validarOpciones();
     });
@@ -94,54 +107,54 @@
     });
     var nombre = $("#nombre");
     nombre.focusin(() => {
-    //   console.log(nombre.val());
+      //   console.log(nombre.val());
       validarOpciones();
     });
     nombre.focusin(() => {
-    //   console.log(nombre.val());
+      //   console.log(nombre.val());
       validarOpciones();
     });
     nombre.keyup(() => {
-    //   console.log(nombre.val());
+      //   console.log(nombre.val());
       validarOpciones();
     });
     var email = $("#email");
     email.focusin(() => {
-    //   console.log(email.val());
+      //   console.log(email.val());
       validarOpciones();
     });
     email.focusin(() => {
-    //   console.log(email.val());
+      //   console.log(email.val());
       validarOpciones();
     });
     email.keyup(() => {
-    //   console.log(email.val());
+      //   console.log(email.val());
       validarOpciones();
     });
     var telefono = $("#telefono");
     telefono.focusin(() => {
-    //   console.log(telefono.val());
+      //   console.log(telefono.val());
       validarOpciones();
     });
     telefono.focusin(() => {
-    //   console.log(telefono.val());
+      //   console.log(telefono.val());
       validarOpciones();
     });
     telefono.keyup(() => {
-    //   console.log(telefono.val());
+      //   console.log(telefono.val());
       validarOpciones();
     });
     var ciudad = $("#ciudad");
     ciudad.focusin(() => {
-    //   console.log(ciudad.val());
+      //   console.log(ciudad.val());
       validarOpciones();
     });
     ciudad.focusin(() => {
-    //   console.log(ciudad.val());
+      //   console.log(ciudad.val());
       validarOpciones();
     });
     ciudad.keyup(() => {
-    //   console.log(ciudad.val());
+      //   console.log(ciudad.val());
       validarOpciones();
     });
 
@@ -177,19 +190,26 @@
       console.log(res);
       $("#grabarPedido").addClass("btn--stroke");
       $("#grabarPedido").removeClass("btn--primary");
-      $("#nombre").val('');
-      $("#email").val('');
-      $("#telefono").val('');
-      $("#ciudad").val('');
+      $("#nombre").val("");
+      $("#email").val("");
+      $("#telefono").val("");
+      $("#ciudad").val("");
       $("#datosParaPedido").hide();
-      $('#tableLineaPedido').html('');
-      alert('Su pedido fue enviado con éxito');
+      $("#tableLineaPedido").html("");
       todasLasLineas = [];
-      var offset = 20
-      $('html, body').animate({
-        scrollTop: $("#articulos").offset().top + offset
-    }, 2000);
-
+      alertify.alert(
+        "<h3>Su pedido fué enviado con éxito</h3>",
+        "En el transcurso de máximo 2 horas nos pondremos en contacto con usted!!",
+        function () {
+          var offset = 20;
+          $("html, body").animate(
+            {
+              scrollTop: $("#home").offset().top + offset,
+            },
+            2000
+          );
+        }
+      );
     });
     // console.log(enviarPedido);
   }
@@ -197,6 +217,7 @@
   function validarOpciones() {
     var btnGrabarPedido = $("#grabarPedido");
     if (
+      $("#formTamano option:selected").val() == "null" ||
       $("#formColor option:selected").val() == "null" ||
       $("#formDiseno option:selected").val() == "null" ||
       $("#formCantidad").val() < 1 ||
@@ -235,16 +256,51 @@
   function grabarLinea(e) {
     e.preventDefault();
 
+    var enviarTamano = $("#formTamano option:selected").text();
     var enviarColor = $("#formColor option:selected").text();
     var enviarDiseno = $("#formDiseno option:selected").text();
     var enviarCantidad = $("#formCantidad").val();
 
     todasLasLineas.push({
       id: +todasLasLineas.length + 1,
+      tamano: enviarTamano,
       color: enviarColor,
       diseno: enviarDiseno,
       cantidad: enviarCantidad,
     });
+
+    alertify
+      .confirm(
+        "Línea grabada con éxito",
+        "<p>Color: " +
+          enviarColor +
+          "</p><p>Diseño: " +
+          enviarDiseno +
+          "</p><p>Tamaño: " +
+          enviarTamano +
+          "</p><p>Cantidad: " +
+          enviarCantidad +
+          "</p><p>¿Qué desea hacer ahora?</p>",
+        function () {
+          var offset = 1;
+          $("html, body").animate(
+            {
+              scrollTop: $("#formGrabarLineaDePedido").offset().top + offset,
+            },
+            1500
+          );
+        },
+        function () {
+          var offset = 1;
+          $("html, body").animate(
+            {
+              scrollTop: $("#formConfirmarPedido").offset().top + offset,
+            },
+            1500
+          );
+        }
+      )
+      .set("labels", { ok: "Grabar otra línea", cancel: "Confirmar pedido" });
 
     // console.log(todasLasLineas);
 
@@ -274,6 +330,7 @@
         <th>Cantidad</th>
         <th>Color</th>
         <th>Diseño</th>
+        <th>Tamaño</th>
         <th>Sub-Total</th>
         <th>Acciones</th>
       </tr>
@@ -297,6 +354,8 @@
         linea.color +
         "</td><td>" +
         linea.diseno +
+        "</td><td>" +
+        linea.tamano +
         "</td><td>$ " +
         subtotal +
         "</td><td><a class='btn btn--small btn--danger btn-eliminar' data-id='" +
@@ -327,9 +386,45 @@
       $("#tableLineaPedido").html("");
     }
     $(".btn-eliminar").click((btn) => {
-      eliminarLinea(btn.target.dataset.id);
+      alertify
+        .confirm(
+          "¿Realmente desea eliminar esta línea?",
+          "Esta acción no se puede deshacer!!",
+          function () {
+            eliminarLinea(btn.target.dataset.id);
+            alertify.notify("Eliminado", "error", 2, function () {
+              console.log("dismissed");
+            });
+            var offset = 1;
+            $("html, body").animate(
+              {
+                scrollTop: $("#formGrabarLineaDePedido").offset().top + offset,
+              },
+              1500
+            );
+          },
+          function () {
+            alertify.notify(
+              "Acción Cancelada",
+              "alert-box--info",
+              2,
+              function () {
+                console.log("dismissed");
+              }
+            );
+            var offset = 1;
+            $("html, body").animate(
+              {
+                scrollTop: $("#formGrabarLineaDePedido").offset().top + offset,
+              },
+              1500
+            );
+          }
+        )
+        .set("labels", { ok: "Eliminar", cancel: "Cancelar" });
     });
     $("#formColor").val("null");
+    $("#formTamano").val("null");
     $("#formDiseno").val("null");
     $("#formCantidad").val(1);
     validarOpciones();
