@@ -8,6 +8,24 @@
 
   $(document).ready(() => {
     validarOpciones();
+    var divColores = $('#div-colores');
+    var htmlDivColores = '';
+    for (let i = 1; i < 11; i++) {
+      htmlDivColores += `<div style="max-width: 50px; max-height: 50px;">
+      <img src="images/colors/${i}.png" alt="" style="width:100%; height:auto;"/>
+    </div>`
+    }
+    // console.log(htmlDivColores);
+    divColores.html(htmlDivColores);
+    var divDiseno = $('#div-diseno');
+    var htmlDivDiseno = '';
+    for (let i = 1; i < 41; i++) {
+      htmlDivDiseno += `<div style="max-width: 50px; max-height: 50px;">
+      <img src="images/designs/${i}.png" alt="" style="width:100%; height:auto;"/>
+    </div>`
+    }
+    // console.log(htmlDivDiseno);
+    divDiseno.html(htmlDivDiseno);
     console.log("Cargado completamente");
     var listartamano =
       "<option value=" + null + ">Seleccione el tamaño</option>";
@@ -239,7 +257,7 @@
     if (
       $("#nombre").val().length < 4 ||
       $("#email").val().length < 4 ||
-      $("#telefono").val().length < 8 ||
+      $("#telefono").val().length < 10 ||
       $("#ciudad").val().length < 4
     ) {
       btnGrabarPedido.addClass("btn--stroke");
