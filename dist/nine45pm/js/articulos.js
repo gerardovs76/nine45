@@ -74,8 +74,8 @@
     ];
 
     var formTamano = $("#formTamano");
-    $.each(tamano, (key, col) => {
-      listartamano += "<option value=" + col + ">" + col + "</option>";
+    $.each(tamano, (key, tam) => {
+      listartamano += "<option value=" + tam + ">" + tam + "</option>";
     });
     formTamano.append(listartamano);
 
@@ -87,7 +87,7 @@
 
     var formDiseno = $("#formDiseno");
     $.each(disenos, (key, dis) => {
-      listarDisenos += "<option value=" + dis + ">" + dis + "</option>";
+      listarDisenos += "<option value=" + dis + "><img src='images/designs/"+key+".png'/> " + dis + "</option>";
     });
     formDiseno.append(listarDisenos);
 
